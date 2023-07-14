@@ -48,43 +48,6 @@ set hlsearch
 set mouse=a
 set ttymouse=sgr
 set balloonevalterm
-" Styled and colored underline support
-let &t_AU = "\e[58:5:%dm"
-let &t_8u = "\e[58:2:%lu:%lu:%lum"
-let &t_Us = "\e[4:2m"
-let &t_Cs = "\e[4:3m"
-let &t_ds = "\e[4:4m"
-let &t_Ds = "\e[4:5m"
-let &t_Ce = "\e[4:0m"
-" Strikethrough
-let &t_Ts = "\e[9m"
-let &t_Te = "\e[29m"
-" Truecolor support
-let &t_8f = "\e[38:2:%lu:%lu:%lum"
-let &t_8b = "\e[48:2:%lu:%lu:%lum"
-let &t_RF = "\e]10;?\e\\"
-let &t_RB = "\e]11;?\e\\"
-" Bracketed paste
-let &t_BE = "\e[?2004h"
-let &t_BD = "\e[?2004l"
-let &t_PS = "\e[200~"
-let &t_PE = "\e[201~"
-" Cursor control
-let &t_RC = "\e[?12$p"
-let &t_SH = "\e[%d q"
-let &t_RS = "\eP$q q\e\\"
-let &t_SI = "\e[5 q"
-let &t_SR = "\e[3 q"
-let &t_EI = "\e[1 q"
-let &t_VS = "\e[?12l"
-" Focus tracking
-let &t_fe = "\e[?1004h"
-let &t_fd = "\e[?1004l"
-execute "set <FocusGained>=\<Esc>[I"
-execute "set <FocusLost>=\<Esc>[O"
-" Window title
-let &t_ST = "\e[22;2t"
-let &t_RT = "\e[23;2t"
 
 " vim hardcodes background color erase even if the terminfo file does
 " not contain bce. This causes incorrect background rendering when
@@ -92,7 +55,29 @@ let &t_RT = "\e[23;2t"
 " kitty that do not support background color erase.
 let &t_ut=''
 
-colorscheme gruvbox
+" Important!!
+if has('termguicolors')
+  set termguicolors
+endif
+
+" For dark version.
+set background=dark
+
+" For light version.
+set background=light
+
+" Set contrast.
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'medium'
+
+" For better performance
+let g:everforest_better_performance = 1
+
+colorscheme everforest
+
+
+" colorscheme gruvbox
 set background=dark "set darkmode
 
 " my custom found stuff
