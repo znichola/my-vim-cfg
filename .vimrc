@@ -49,37 +49,6 @@ set mouse=a
 set ttymouse=sgr
 set balloonevalterm
 
-" vim hardcodes background color erase even if the terminfo file does
-" not contain bce. This causes incorrect background rendering when
-" using a color theme with a background color in terminals such as
-" kitty that do not support background color erase.
-let &t_ut=''
-
-" Important!!
-if has('termguicolors')
-  set termguicolors
-endif
-
-" For dark version.
-set background=dark
-
-" For light version.
-set background=light
-
-" Set contrast.
-" This configuration option should be placed before `colorscheme everforest`.
-" Available values: 'hard', 'medium'(default), 'soft'
-let g:everforest_background = 'medium'
-
-" For better performance
-let g:everforest_better_performance = 1
-
-colorscheme everforest
-
-
-" colorscheme gruvbox
-set background=dark "set darkmode
-
 " my custom found stuff
 set tabstop=4 " indentation width
 set shiftwidth=4 " make the indentation the same
@@ -87,3 +56,5 @@ set smarttab " autotabs for certain  code
 set showmatch " show matching bracket
 set listchars=eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<
 set list
+highlight NonText ctermfg=DarkGrey
+highlight SpecialKey ctermfg=DarkGrey
